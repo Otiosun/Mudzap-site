@@ -14,8 +14,8 @@ interface ComoFuncionaScreenProps {
 // Comandos principais do bot
 const comandosPrincipais = [
   { cmd: "!perfil", desc: "Ver seu perfil", icon: Users },
-  { cmd: "!colecao", desc: "Ver suas cartas", icon: Star },
-  { cmd: "!evento", desc: "Eventos ativos", icon: Trophy },
+  { cmd: "!inventario", desc: "Ver seus personagens", icon: Star },
+  { cmd: "!roll", desc: "Roletar personagens", icon: Trophy },
   { cmd: "!rank", desc: "Ver ranking", icon: Sparkles },
   { cmd: "!ajuda", desc: "Lista de comandos", icon: Heart },
 ]
@@ -204,40 +204,73 @@ export function ComoFuncionaScreen({ onNavigate }: ComoFuncionaScreenProps) {
             </motion.div>
 
             {/* Commands Grid */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 }}
-              className="bg-card border-2 border-border rounded-2xl p-5 panel-card"
-            >
-              <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
-                <Terminal className="w-5 h-5 text-primary" />
-                Comandos Principais
-              </h3>
-              <div className="grid grid-cols-3 sm:grid-cols-5 gap-2 sm:gap-3">
-                {comandosPrincipais.map((cmd, index) => (
-                  <motion.div
-                    key={cmd.cmd}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.8 + index * 0.05 }}
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    className="bg-secondary/50 rounded-xl p-3 text-center hover:bg-secondary transition-colors cursor-pointer group"
-                    onClick={() => navigator.clipboard.writeText(cmd.cmd)}
-                  >
-                    <cmd.icon className="w-5 h-5 text-primary mx-auto mb-2 group-hover:scale-110 transition-transform" />
-                    <code className="text-sm font-mono font-bold text-foreground block">
-                      {cmd.cmd}
-                    </code>
-                    <p className="text-xs text-muted-foreground mt-1">
-                      {cmd.desc}
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
-              <p className="text-xs text-muted-foreground text-center mt-4">
-                Clique em um comando para copiar
-              </p>
+            {/* Commands Grid */}
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.7 }}
+  className="bg-white border-2 border-pink-200 rounded-2xl p-5 shadow-lg"
+>
+  <h3 className="text-lg font-bold text-pink-500 mb-4 flex items-center gap-2">
+    <Terminal className="w-5 h-5 text-pink-500" />
+    Comandos Principais
+  </h3>
+
+  <div className="grid grid-cols-3 sm:grid-cols-5 gap-2 sm:gap-3">
+    {comandosPrincipais.map((cmd, index) => (
+      <motion.div
+        key={cmd.cmd}
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.8 + index * 0.05 }}
+        whileHover={{ scale: 1.05, y: -2 }}
+        className="
+          bg-white
+          border
+          border-pink-200
+          rounded-xl
+          p-3
+          text-center
+          hover:bg-pink-100
+          hover:border-pink-300
+          transition-all
+          duration-300
+          cursor-pointer
+          group
+          shadow-sm
+          hover:shadow-lg
+          hover:shadow-pink-200/50
+        "
+        onClick={() => navigator.clipboard.writeText(cmd.cmd)}
+      >
+        <cmd.icon
+          className="
+            w-5
+            h-5
+            text-pink-500
+            mx-auto
+            mb-2
+            group-hover:text-pink-600
+            group-hover:scale-110
+            transition-all
+            duration-300
+          "
+        />
+
+        <code className="text-sm font-mono font-bold text-pink-500 block">
+          {cmd.cmd}
+        </code>
+
+        <p className="text-xs text-pink-400 mt-1">
+          {cmd.desc}
+        </p>
+      </motion.div>
+    ))}
+  </div>
+
+  <p className="text-xs text-pink-400 text-center mt-4">
+    Clique em um comando para copiar
+  </p>
             </motion.div>
 
             {/* CTA */}
@@ -249,10 +282,10 @@ export function ComoFuncionaScreen({ onNavigate }: ComoFuncionaScreenProps) {
               <Button
                 size="lg"
                 className="w-full bg-gradient-to-r from-primary to-pink-600 hover:from-primary/90 hover:to-pink-600/90 glow-pink font-bold py-6"
-                onClick={() => onNavigate("comecar")}
+                onClick={() => onNavigate("começar")}
               >
                 <Zap className="w-5 h-5 mr-2" />
-                Comecar Agora
+                Começar Agora
               </Button>
             </motion.div>
           </div>

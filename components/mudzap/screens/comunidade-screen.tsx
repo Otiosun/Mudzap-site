@@ -30,7 +30,7 @@ export function ComunidadeScreen() {
             </span>
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Faca parte de uma comunidade ativa de colecionadores e jogadores!
+            Faça parte de uma comunidade ativa de colecionadores e jogadores!
           </p>
         </motion.div>
 
@@ -42,10 +42,10 @@ export function ComunidadeScreen() {
           className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4 mb-10"
         >
           {[
-            { label: "Membros Ativos", value: "500+", icon: Users, cor: "from-primary to-pink-600" },
-            { label: "Mensagens/Dia", value: "1000+", icon: MessageSquare, cor: "from-blue-500 to-cyan-500" },
+            { label: "Membros Ativos", value: "25+", icon: Users, cor: "from-primary to-pink-600" },
+            { label: "Mensagens/Dia", value: "2000+", icon: MessageSquare, cor: "from-blue-500 to-cyan-500" },
             { label: "Eventos Realizados", value: "50+", icon: Trophy, cor: "from-amber-500 to-orange-500" },
-            { label: "Cartas Coletadas", value: "10K+", icon: Heart, cor: "from-red-500 to-rose-500" },
+            { label: "Personagens Coletados", value: "1000+", icon: Heart, cor: "from-red-500 to-rose-500" },
           ].map((stat, index) => (
             <motion.div
               key={stat.label}
@@ -75,7 +75,7 @@ export function ComunidadeScreen() {
             <div className="h-px flex-1 bg-gradient-to-r from-transparent via-border to-transparent" />
             <h2 className="text-xl font-bold text-center text-foreground flex items-center gap-2">
               <Star className="w-5 h-5 text-amber-500" />
-              O que dizem sobre nos
+              O que dizem sobre nós
             </h2>
             <div className="h-px flex-1 bg-gradient-to-r from-transparent via-border to-transparent" />
           </div>
@@ -126,7 +126,7 @@ export function ComunidadeScreen() {
 
           <p className="text-center text-sm text-muted-foreground mt-6 flex items-center justify-center gap-2">
             <Sparkles className="w-4 h-4 text-primary" />
-            Area preparada para integracao com feedback real da comunidade
+            Área preparada para integração com feedback real da comunidade
           </p>
         </motion.div>
 
@@ -148,7 +148,7 @@ export function ComunidadeScreen() {
               </div>
               <h3 className="text-xl font-black mb-2 text-foreground">Entrar na Comunidade</h3>
               <p className="text-muted-foreground mb-6">
-                Junte-se a centenas de jogadores na comunidade oficial do MUDZAP no WhatsApp.
+                Junte-se a dezenas de jogadores na comunidade oficial do MUDZAP no WhatsApp.
               </p>
               <Button className="w-full bg-gradient-to-r from-primary to-pink-600 hover:from-primary/90 hover:to-pink-600/90 glow-pink-sm font-bold py-6">
                 Entrar Agora
@@ -165,7 +165,7 @@ export function ComunidadeScreen() {
               </div>
               <h3 className="text-xl font-black mb-2 text-foreground">Acompanhe as Novidades</h3>
               <p className="text-muted-foreground mb-6">
-                Siga nossas redes sociais para nao perder nenhuma atualizacao ou evento.
+                Siga nossas redes sociais para não perder nenhuma atualização ou evento.
               </p>
               <div className="flex gap-3">
                 <Button variant="outline" className="flex-1 border-2 border-primary/30 hover:bg-primary hover:text-white font-bold py-6">

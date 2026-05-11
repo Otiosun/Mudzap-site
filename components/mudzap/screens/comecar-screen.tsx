@@ -65,8 +65,8 @@ const passosAtivacao = [
     corTexto: "text-purple-600",
     corBorda: "border-purple-500/30",
     detalhes: {
-      instrucao: "Digite !perfil no chat para comecar",
-      dica: "Seu perfil guarda todas as suas cartas e conquistas",
+      instrucao: "Digite !perfil no chat para começar",
+      dica: "Seu perfil guarda todas os seus personagens e conquistas",
       acao: "Ver Comandos",
       comando: "!perfil"
     }
@@ -74,15 +74,15 @@ const passosAtivacao = [
   {
     id: 4,
     titulo: "Ver Colecao",
-    descricao: "Explore suas cartas e comece a colecionar",
+    descricao: "Explore seus personagens e comece a colecionar",
     icon: Star,
     cor: "from-amber-500 to-orange-500",
     corBg: "bg-amber-500/10",
     corTexto: "text-amber-600",
     corBorda: "border-amber-500/30",
     detalhes: {
-      instrucao: "Use !colecao para ver suas cartas",
-      dica: "Ganhe cartas participando de eventos e atividades",
+      instrucao: "Use !colecao para ver seus personagens",
+      dica: "Ganhe personagens participando de eventos e atividades",
       acao: "Ver Sistemas",
       comando: "!colecao"
     }
@@ -90,7 +90,7 @@ const passosAtivacao = [
   {
     id: 5,
     titulo: "Participar de Evento",
-    descricao: "Entre em eventos para ganhar cartas raras",
+    descricao: "Entre em eventos para ganhar Personagens raras",
     icon: Trophy,
     cor: "from-red-500 to-rose-600",
     corBg: "bg-red-500/10",
@@ -133,7 +133,7 @@ export function ComecarScreen({ onNavigate }: ComecarScreenProps) {
             </span>
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Complete os passos abaixo para ativar sua conta e comecar a colecionar!
+            Complete os passos abaixo para ativar sua conta e começar a colecionar!
           </p>
         </motion.div>
 
@@ -327,7 +327,7 @@ export function ComecarScreen({ onNavigate }: ComecarScreenProps) {
             <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6">
               <div className="text-center lg:text-left">
                 <h2 className="text-2xl lg:text-3xl font-black text-secondary-foreground mb-2">
-                  Pronto para comecar?
+                  Pronto para começar?
                 </h2>
                 <p className="text-muted-foreground max-w-lg">
                   Entre na comunidade oficial e comece sua jornada de colecao agora mesmo!

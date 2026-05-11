@@ -10,7 +10,7 @@ interface MobileNavProps {
 }
 
 const navItems = [
-  { id: "home" as Screen, label: "Inicio", icon: Home },
+  { id: "home" as Screen, label: "Início", icon: Home },
   { id: "sistemas" as Screen, label: "Sistemas", icon: Sparkles },
   { id: "comunidade" as Screen, label: "Social", icon: Users },
   { id: "eventos" as Screen, label: "Eventos", icon: Trophy },

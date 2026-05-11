@@ -12,7 +12,7 @@ interface HeaderProps {
 }
 
 const navItems: { id: Screen; label: string }[] = [
-  { id: "home", label: "Inicio" },
+  { id: "home", label: "Início" },
   { id: "sistemas", label: "Sistemas" },
   { id: "como-funciona", label: "Como Funciona" },
   { id: "eventos", label: "Eventos" },
@@ -88,10 +88,10 @@ export function Header({ currentScreen, onNavigate }: HeaderProps) {
             </Button>
             <Button
               className="bg-gradient-to-r from-primary to-pink-600 hover:from-primary/90 hover:to-pink-600/90 glow-pink-sm font-bold"
-              onClick={() => onNavigate("comecar")}
+              onClick={() => onNavigate("começar")}
             >
               <Sparkles className="w-4 h-4 mr-2" />
-              Comecar
+              Começar
             </Button>
           </div>
 
@@ -154,12 +154,12 @@ export function Header({ currentScreen, onNavigate }: HeaderProps) {
                 <Button
                   className="flex-1 bg-gradient-to-r from-primary to-pink-600 font-bold py-6"
                   onClick={() => {
-                    onNavigate("comecar")
+                    onNavigate("começar")
                     setMobileMenuOpen(false)
                   }}
                 >
                   <Sparkles className="w-4 h-4 mr-2" />
-                  Comecar
+                  Começar
                 </Button>
               </div>
             </nav>

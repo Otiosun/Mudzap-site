@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: 'MUDZAP | Central Oficial - Bot de Coleção para WhatsApp',
   description: 'MUDZAP - Seu mundo. Suas regras. Suas coleções. O bot de coleção, progressão e comunidade para WhatsApp. Colecione personagens, evolua, compita em rankings e eventos!',
-  keywords: ['MUDZAP', 'bot WhatsApp', 'coleção', 'personagens', 'cartas', 'comunidade', 'jogo', 'Brasil'],
+  keywords: ['MUDZAP', 'bot WhatsApp', 'coleção', 'personagens', 'personagens', 'comunidade', 'jogo', 'Brasil'],
   authors: [{ name: 'MUDZAP' }],
   generator: 'v0.app',
   icons: {

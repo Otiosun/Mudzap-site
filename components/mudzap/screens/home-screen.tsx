@@ -79,7 +79,7 @@ export function HomeScreen({ onNavigate }: HomeScreenProps) {
               className="flex flex-wrap gap-2 mb-8"
             >
               {[
-                { icon: Star, text: "500+ Cartas", cor: "bg-amber-500/10 text-amber-600 border-amber-500/30" },
+                { icon: Star, text: "15000+ Personagens", cor: "bg-amber-500/10 text-amber-600 border-amber-500/30" },
                 { icon: Trophy, text: "Rankings", cor: "bg-purple-500/10 text-purple-600 border-purple-500/30" },
                 { icon: Gift, text: "Eventos", cor: "bg-green-500/10 text-green-600 border-green-500/30" },
                 { icon: Users, text: "Comunidade", cor: "bg-blue-500/10 text-blue-600 border-blue-500/30" },
@@ -107,7 +107,7 @@ export function HomeScreen({ onNavigate }: HomeScreenProps) {
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-primary to-pink-600 hover:from-primary/90 hover:to-pink-600/90 text-base sm:text-lg px-6 sm:px-8 py-6 sm:py-7 glow-pink group font-bold badge-pulse w-full sm:w-auto"
-                onClick={() => onNavigate("comecar")}
+                onClick={() => onNavigate("começar")}
               >
                 <Zap className="w-5 h-5 mr-2 group-hover:animate-pulse" />
                 COMEÇAR AGORA
@@ -169,11 +169,11 @@ export function HomeScreen({ onNavigate }: HomeScreenProps) {
               <motion.div
                 animate={{ y: [0, -12, 0], rotate: [0, 3, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-2 left-4 lg:-left-4 z-20"
+                className="absolute top-6 left-4 lg:-left-4 z-20"
               >
                 <div className="px-4 py-2 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 text-white font-bold text-sm shadow-lg glow-gold sticker">
                   <Crown className="w-4 h-4 inline mr-1.5" />
-                  500+ CARTAS
+                  15000+ Personagens
                 </div>
               </motion.div>
               
@@ -212,9 +212,6 @@ export function HomeScreen({ onNavigate }: HomeScreenProps) {
               {/* Mascot Frame/Panel */}
               <div className="relative mascot-container">
                 {/* Decorative frame */}
-                <div className="absolute inset-4 border-2 border-primary/20 rounded-[2rem] -z-10" />
-                <div className="absolute inset-8 border border-amber-500/10 rounded-[1.5rem] -z-10" />
-                
                 {/* Mascot Image */}
                 <motion.div
                   animate={{ y: [0, -10, 0] }}
@@ -247,8 +244,8 @@ export function HomeScreen({ onNavigate }: HomeScreenProps) {
                       <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
                       <span className="text-secondary-foreground font-bold text-sm">MUDZAP Bot</span>
                     </div>
-                    <div className="text-xs text-muted-foreground bg-primary/20 px-2 py-1 rounded-full">
-                      v1.0 Beta
+                    <div className="text-xs text-white bg-pink-600 px-2 py-1 rounded-full">
+                      v2.0 Beta
                     </div>
                   </div>
                 </motion.div>

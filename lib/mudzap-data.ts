@@ -15,7 +15,7 @@ import {
 
 export type Screen =
   | "home"
-  | "comecar"
+  | "começar"
   | "sistemas"
   | "como-funciona"
   | "comunidade"
@@ -233,7 +233,7 @@ export const faqs: FAQ[] = [
     id: "1",
     pergunta: "O que é o MUDZAP?",
     resposta:
-      "O MUDZAP é um bot de coleção e progressão para WhatsApp. Você pode colecionar personagens de diversos universos, evoluir, participar de eventos, competir em rankings e muito mais! É gratuito para jogar.",
+      "O MUDZAP é um bot de coleção para WhatsApp. Você pode colecionar personagens de diversos universos, participar de eventos, competir em rankings e muito mais! É gratuito para jogar.",
     categoria: "Geral",
   },
   {
@@ -293,53 +293,59 @@ export const etapasComoFunciona = [
   },
   {
     id: 3,
-    titulo: "Colecionar",
-    descricao: "Receba seus personagens",
+    titulo: "Rodar e capturar",
+    descricao: "Use !roll e capture o personagem usando emoji de coração",
   },
   {
     id: 4,
-    titulo: "Evoluir",
-    descricao: "Evolua e fique mais forte",
+    titulo: "Inventário",
+    descricao: "Veja seus personagens",
   },
   {
     id: 5,
-    titulo: "Competir",
-    descricao: "Participe de eventos",
+    titulo: "Inspecionar",
+    descricao: "Inspecione detalhes do personagem",
   },
 ]
 
 export const conversasWhatsApp: Record<number, MensagemWhatsApp[]> = {
   1: [
-    { id: 1, remetente: "bot", mensagem: "🎉 Bem-vindo ao MUDZAP!", hora: "14:30" },
-    { id: 2, remetente: "bot", mensagem: "Use !ajuda para ver os comandos disponíveis.", hora: "14:30" },
-  ],
-  2: [
-    { id: 1, remetente: "user", mensagem: "!perfil", hora: "14:31" },
-    { id: 2, remetente: "bot", mensagem: "📊 *Seu Perfil MUDZAP*\n\n🎮 Nível: 1\n💰 Moedas: 100\n🃏 Cartas: 0\n⭐ Rank: Iniciante", hora: "14:31" },
-  ],
-  3: [
-    { id: 1, remetente: "user", mensagem: "!colecao", hora: "14:32" },
-    { id: 2, remetente: "bot", mensagem: "🎴 *Parabéns!* Você recebeu uma nova carta!\n\n⭐ **Sakura** (Raro)\n💫 Poder: 250\n🎯 Universo: Anime", hora: "14:32" },
-  ],
-  4: [
-    { id: 1, remetente: "user", mensagem: "!evoluir Sakura", hora: "14:33" },
-    { id: 2, remetente: "bot", mensagem: "✨ *Evolução Completa!*\n\n⭐ **Sakura** evoluiu!\n📈 Nível: 1 → 2\n💫 Poder: 250 → 320", hora: "14:33" },
-  ],
-  5: [
-    { id: 1, remetente: "user", mensagem: "!evento", hora: "14:34" },
-    { id: 2, remetente: "bot", mensagem: "🎊 *Evento Ativo!*\n\n🌸 Festival de Primavera\n⏰ Termina em: 5 dias\n🎁 Recompensas exclusivas!", hora: "14:34" },
-  ],
+  { id: 1, remetente: "bot", mensagem: "🎉 Bem-vindo ao MUDZAP!", hora: "14:30" },
+  { id: 2, remetente: "bot", mensagem: "Use !ajuda para ver os comandos disponíveis.", hora: "14:30" },
+],
+
+2: [
+  { id: 1, remetente: "user", mensagem: "!perfil", hora: "14:31" },
+  { id: 2, remetente: "bot", mensagem: "📊 *Seu Perfil MUDZAP*\n\n💠 Kakera: 0\n💎 Patrimonio: 0 ka\n💍 Personagens: 0\n🆔 ID: 2", hora: "14:31" },
+],
+
+3: [
+  { id: 1, remetente: "user", mensagem: "!roll", hora: "14:32" },
+  { id: 2, remetente: "bot", mensagem: "♀️ Sakura Haruno ★★★★☆\n\n💖 Capture com emoji de coracao!\n🎲 Rolls: 7/8", hora: "14:32" },
+  { id: 3, remetente: "user", mensagem: "💖", hora: "14:32" },
+  { id: 4, remetente: "bot", mensagem: "💍 Você capturou Sakura Haruno!\n💠 +245,16 kakera", hora: "14:32" },
+],
+
+4: [
+  { id: 1, remetente: "user", mensagem: "!inventario", hora: "14:33" },
+  { id: 2, remetente: "bot", mensagem: "Seu Inventário\n\nValor total: 1.362 💠\n#174 Sakura Haruno ★★★★☆", hora: "14:33" },
+],
+
+5: [
+  { id: 1, remetente: "user", mensagem: "!im Sakura Haruno", hora: "14:34" },
+  { id: 2, remetente: "bot", mensagem: "Sakura Haruno ★★★★☆\n\nNaruto ♀️\nManga • 1.362 💠 • id:401\nClaim W - #174", hora: "14:34" },
+],
 }
 
 export const indicadoresHome = [
   { label: "Comunidade", value: "Ativa", icon: Users, status: "online" },
   { label: "Eventos", value: "1 Ativo", icon: Swords, status: "active" },
   { label: "Coleções", value: "500+", icon: Sparkles, status: "info" },
-  { label: "Comandos", value: "50+", icon: Terminal, status: "info" },
+  { label: "Comandos", value: "75+", icon: Terminal, status: "info" },
 ]
 
 export const navegacaoHome = [
-  { id: "comecar" as Screen, label: "Começar", icon: Zap, cor: "bg-gradient-to-br from-pink-500 to-rose-600" },
+  { id: "começar" as Screen, label: "Começar", icon: Zap, cor: "bg-gradient-to-br from-pink-500 to-rose-600" },
   { id: "sistemas" as Screen, label: "Sistemas", icon: Sparkles, cor: "bg-gradient-to-br from-purple-500 to-pink-600" },
   { id: "comunidade" as Screen, label: "Comunidade", icon: Users, cor: "bg-gradient-to-br from-green-500 to-emerald-600" },
   { id: "eventos" as Screen, label: "Eventos", icon: Swords, cor: "bg-gradient-to-br from-amber-500 to-orange-600" },
@@ -390,7 +396,7 @@ export const depoimentos = [
     id: 1,
     nome: "Lucas M.",
     avatar: "L",
-    mensagem: "O MUDZAP é muito viciante! Já tenho mais de 200 cartas coletadas 🎴",
+    mensagem: "O MUDZAP é muito viciante! Já tenho mais de 100 personagens coletados 🎴",
     data: "Há 2 dias",
     etiqueta: "Top Colecionador",
   },
@@ -422,8 +428,8 @@ export const depoimentos = [
 
 export const statusInfo = {
   status: "online",
-  ultimaAtualizacao: "10/05/2026",
-  versao: "2.5.0",
+  ultimaAtualizacao: "11/05/2026",
+  versao: "2.0.0",
   avisosImportantes: [
     "Projeto em desenvolvimento ativo",
     "Novas funcionalidades em breve",

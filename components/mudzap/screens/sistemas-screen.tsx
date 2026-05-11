@@ -230,7 +230,7 @@ export function SistemasScreen() {
           transition={{ delay: 0.6 }}
           className="mt-10"
         >
-          <div className="bg-secondary/50 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="bg-white/80 border border-pink-200 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                 <Zap className="w-6 h-6 text-primary" />
