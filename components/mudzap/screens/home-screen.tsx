@@ -15,6 +15,12 @@ interface HomeScreenProps {
 
 export function HomeScreen({ onNavigate }: HomeScreenProps) {
   const { reduceMotion } = useMotionMode()
+  const heroHighlights = [
+    { icon: Star, text: "15000+ Personagens", cor: "bg-amber-500/10 text-amber-600 border-amber-500/30" },
+    { icon: Trophy, text: "Rankings", cor: "bg-purple-500/10 text-purple-600 border-purple-500/30" },
+    { icon: Gift, text: "Eventos", cor: "bg-green-500/10 text-green-600 border-green-500/30" },
+    { icon: Users, text: "Comunidade", cor: "bg-blue-500/10 text-blue-600 border-blue-500/30" },
+  ]
 
   return (
     <div className="min-h-screen pt-14 lg:pt-20 pb-28 lg:pb-8 bg-pattern overflow-x-hidden">
@@ -26,14 +32,14 @@ export function HomeScreen({ onNavigate }: HomeScreenProps) {
             initial={reduceMotion ? false : { opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={reduceMotion ? { duration: 0 } : { duration: 0.5 }}
-            className="order-2 lg:order-1 relative z-10"
+            className="order-2 lg:order-1 relative z-10 max-w-xl mx-auto lg:mx-0 text-center lg:text-left hero-desktop-slide-left"
           >
             {/* Top Badges Row */}
             <motion.div
               initial={reduceMotion ? false : { opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={reduceMotion ? { duration: 0 } : { delay: 0.15, duration: 0.35 }}
-              className="flex flex-wrap items-center gap-3 mb-6"
+              className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-3 mb-5 sm:mb-6 hero-desktop-rise hero-delay-1"
             >
               {/* Status Badge */}
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary text-secondary-foreground border-2 border-primary/30">
@@ -45,7 +51,7 @@ export function HomeScreen({ onNavigate }: HomeScreenProps) {
               </div>
               
               {/* Dev Badge */}
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 sticker">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 shadow-sm md:-rotate-3 md:shadow-md">
                 <Sparkles className="w-3.5 h-3.5 text-amber-500" />
                 <span className="text-xs font-bold text-amber-600">EM DESENVOLVIMENTO</span>
               </div>
@@ -56,7 +62,7 @@ export function HomeScreen({ onNavigate }: HomeScreenProps) {
               initial={reduceMotion ? false : { opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={reduceMotion ? { duration: 0 } : { delay: 0.2, duration: 0.4 }}
-              className="mb-6"
+              className="mb-6 hero-desktop-rise hero-delay-2"
             >
               <div className="text-xs sm:text-sm font-bold text-primary uppercase tracking-widest mb-2">
                 Bot de Coleção para WhatsApp
@@ -67,7 +73,7 @@ export function HomeScreen({ onNavigate }: HomeScreenProps) {
                   ZAP
                 </span>
               </h1>
-              <div className="flex items-center gap-4 mt-4">
+              <div className="flex items-center justify-center lg:justify-start gap-4 mt-4">
                 <div className="h-1 w-16 bg-gradient-to-r from-primary to-transparent rounded-full" />
                 <p className="text-base sm:text-xl font-semibold text-foreground">
                   Seu mundo. Suas regras. <span className="text-primary">Suas coleções.</span>
@@ -80,14 +86,9 @@ export function HomeScreen({ onNavigate }: HomeScreenProps) {
               initial={reduceMotion ? false : { opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={reduceMotion ? { duration: 0 } : { delay: 0.25, duration: 0.4 }}
-              className="flex flex-wrap gap-2 mb-8"
+              className="flex flex-wrap justify-center lg:justify-start gap-2 mb-6 sm:mb-8 hero-desktop-rise hero-delay-3"
             >
-              {[
-                { icon: Star, text: "15000+ Personagens", cor: "bg-amber-500/10 text-amber-600 border-amber-500/30" },
-                { icon: Trophy, text: "Rankings", cor: "bg-purple-500/10 text-purple-600 border-purple-500/30" },
-                { icon: Gift, text: "Eventos", cor: "bg-green-500/10 text-green-600 border-green-500/30" },
-                { icon: Users, text: "Comunidade", cor: "bg-blue-500/10 text-blue-600 border-blue-500/30" },
-              ].map((item, i) => (
+              {heroHighlights.map((item, i) => (
                 <motion.div
                   key={item.text}
                   initial={reduceMotion ? false : { opacity: 0, scale: 0.8 }}
@@ -106,7 +107,7 @@ export function HomeScreen({ onNavigate }: HomeScreenProps) {
               initial={reduceMotion ? false : { opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={reduceMotion ? { duration: 0 } : { delay: 0.35, duration: 0.4 }}
-              className="flex flex-col sm:flex-row gap-3 mb-6"
+              className="flex flex-col sm:flex-row gap-3 mb-6 hero-desktop-rise hero-delay-4"
             >
               <Button
                 size="lg"
@@ -136,7 +137,7 @@ export function HomeScreen({ onNavigate }: HomeScreenProps) {
               animate={{ opacity: 1 }}
               transition={reduceMotion ? { duration: 0 } : { delay: 0.45, duration: 0.3 }}
               onClick={() => onNavigate("como-funciona")}
-              className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
+              className="flex items-center justify-center lg:justify-start gap-2 text-muted-foreground hover:text-primary transition-colors group hero-desktop-fade hero-delay-5"
             >
               <div className="w-10 h-10 rounded-full border-2 border-current flex items-center justify-center group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all">
                 <Play className="w-4 h-4 ml-0.5" />
@@ -150,11 +151,11 @@ export function HomeScreen({ onNavigate }: HomeScreenProps) {
             initial={reduceMotion ? false : { opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={reduceMotion ? { duration: 0 } : { duration: 0.5, delay: 0.15 }}
-            className="order-1 lg:order-2 relative"
+            className="order-1 lg:order-2 relative mb-4 lg:mb-0 hero-desktop-slide-right"
           >
-            <div className="relative w-full max-w-lg mx-auto">
+            <div className="relative w-full max-w-[17rem] sm:max-w-sm lg:max-w-lg mx-auto">
               {/* Background Shapes */}
-              <div className="absolute inset-0 -m-8">
+              <div className="absolute inset-0 -m-4 sm:-m-6 lg:-m-8">
                 {/* Pink glow */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-br from-primary/20 via-pink-500/15 to-transparent rounded-full blur-2xl lg:blur-3xl" />
                 {/* Gold accent */}
@@ -175,7 +176,7 @@ export function HomeScreen({ onNavigate }: HomeScreenProps) {
               <motion.div
                 animate={reduceMotion ? undefined : { y: [0, -12, 0], rotate: [0, 3, 0] }}
                 transition={reduceMotion ? undefined : { duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="hidden sm:block absolute top-6 left-4 lg:-left-4 z-20"
+                className="hidden md:block absolute top-6 left-4 lg:-left-4 z-20"
               >
                 <div className="px-4 py-2 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 text-white font-bold text-sm shadow-lg glow-gold sticker">
                   <Crown className="w-4 h-4 inline mr-1.5" />
@@ -186,7 +187,7 @@ export function HomeScreen({ onNavigate }: HomeScreenProps) {
               <motion.div
                 animate={reduceMotion ? undefined : { y: [0, 10, 0], rotate: [0, -2, 0] }}
                 transition={reduceMotion ? undefined : { duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                className="hidden sm:block absolute top-16 -right-2 lg:-right-8 z-20"
+                className="hidden md:block absolute top-16 -right-2 lg:-right-8 z-20"
               >
                 <div className="px-4 py-2 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 text-white font-bold text-sm shadow-lg sticker">
                   <Sparkles className="w-4 h-4 inline mr-1.5" />
@@ -197,7 +198,7 @@ export function HomeScreen({ onNavigate }: HomeScreenProps) {
               <motion.div
                 animate={reduceMotion ? undefined : { y: [0, -8, 0], rotate: [0, 2, 0] }}
                 transition={reduceMotion ? undefined : { duration: 2.8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="hidden sm:block absolute bottom-16 -left-2 lg:-left-8 z-20"
+                className="hidden md:block absolute bottom-16 -left-2 lg:-left-8 z-20"
               >
                 <div className="px-4 py-2 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 text-white font-bold text-sm shadow-lg glow-pink-sm sticker">
                   <Trophy className="w-4 h-4 inline mr-1.5" />
@@ -208,7 +209,7 @@ export function HomeScreen({ onNavigate }: HomeScreenProps) {
               <motion.div
                 animate={reduceMotion ? undefined : { y: [0, 6, 0] }}
                 transition={reduceMotion ? undefined : { duration: 3.2, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
-                className="hidden sm:flex absolute bottom-8 right-8 z-20"
+                className="hidden md:flex absolute bottom-8 right-8 z-20"
               >
                 <div className="w-12 h-12 rounded-full bg-gradient-to-br from-red-500 to-rose-600 flex items-center justify-center text-white shadow-lg glow-red">
                   <span className="font-black text-lg">!</span>
@@ -240,7 +241,7 @@ export function HomeScreen({ onNavigate }: HomeScreenProps) {
                   initial={reduceMotion ? false : { opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={reduceMotion ? { duration: 0 } : { delay: 0.5, duration: 0.35 }}
-                  className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-[90%] bg-secondary/95 rounded-2xl px-4 sm:px-6 py-3 shadow-xl border border-primary/20"
+                  className="absolute -bottom-3 sm:-bottom-4 left-1/2 -translate-x-1/2 w-[92%] max-w-xs sm:max-w-none bg-secondary/95 rounded-2xl px-4 sm:px-6 py-3 shadow-xl border border-primary/20"
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
@@ -252,6 +253,20 @@ export function HomeScreen({ onNavigate }: HomeScreenProps) {
                     </div>
                   </div>
                 </motion.div>
+              </div>
+
+              <div className="md:hidden mt-8 grid grid-cols-2 gap-2 px-1">
+                {heroHighlights.map((item) => (
+                  <div
+                    key={`mobile-${item.text}`}
+                    className="flex items-center gap-2 rounded-2xl border border-border/80 bg-card/90 px-3 py-2 text-left shadow-sm backdrop-blur-sm"
+                  >
+                    <div className={`rounded-xl p-2 ${item.cor}`}>
+                      <item.icon className="w-4 h-4" />
+                    </div>
+                    <span className="text-[11px] font-bold leading-tight text-foreground">{item.text}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </motion.div>

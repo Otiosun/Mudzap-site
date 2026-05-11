@@ -321,6 +321,96 @@
   animation: shake 0.5s ease-in-out;
 }
 
+@keyframes hero-desktop-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes hero-desktop-slide-left {
+  from {
+    opacity: 0;
+    transform: translate3d(-32px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes hero-desktop-slide-right {
+  from {
+    opacity: 0;
+    transform: translate3d(32px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes hero-desktop-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+  .hero-desktop-rise,
+  .hero-desktop-slide-left,
+  .hero-desktop-slide-right,
+  .hero-desktop-fade {
+    animation-duration: 0.6s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform, opacity;
+  }
+
+  .hero-desktop-rise {
+    animation-name: hero-desktop-rise;
+  }
+
+  .hero-desktop-slide-left {
+    animation-name: hero-desktop-slide-left;
+  }
+
+  .hero-desktop-slide-right {
+    animation-name: hero-desktop-slide-right;
+  }
+
+  .hero-desktop-fade {
+    animation-name: hero-desktop-fade;
+  }
+
+  .hero-delay-1 {
+    animation-delay: 0.12s;
+  }
+
+  .hero-delay-2 {
+    animation-delay: 0.2s;
+  }
+
+  .hero-delay-3 {
+    animation-delay: 0.28s;
+  }
+
+  .hero-delay-4 {
+    animation-delay: 0.36s;
+  }
+
+  .hero-delay-5 {
+    animation-delay: 0.46s;
+  }
+}
+
 /* Ribbon/Banner styles */
 .ribbon {
   position: absolute;
