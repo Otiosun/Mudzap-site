@@ -15,6 +15,7 @@ import {
   Zap,
 } from "lucide-react"
 import { statusInfo } from "@/lib/mudzap-data"
+import { MUDZAP_COMMUNITY_URL, MUDZAP_GITHUB_URL, goToExternalLink } from "@/lib/mudzap-links"
 import { Button } from "@/components/ui/button"
 
 export function StatusScreen() {
@@ -160,6 +161,7 @@ export function StatusScreen() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 + index * 0.1 }}
               whileHover={{ y: -4 }}
+              onClick={() => goToExternalLink(MUDZAP_GITHUB_URL)}
               className="bg-card border border-border rounded-2xl p-5 text-left hover:border-primary/30 transition-all group"
             >
               <div className="flex items-center justify-between mb-2">
@@ -181,15 +183,27 @@ export function StatusScreen() {
         >
           <h3 className="text-xl font-bold mb-6">Links Oficiais</h3>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button variant="outline" className="border-primary/30 hover:bg-primary/10">
+            <Button
+              variant="outline"
+              className="border-primary/30 hover:bg-primary/10"
+              onClick={() => goToExternalLink(MUDZAP_COMMUNITY_URL)}
+            >
               <Zap className="w-4 h-4 mr-2 text-primary" />
               WhatsApp
             </Button>
-            <Button variant="outline" className="border-primary/30 hover:bg-primary/10">
+            <Button
+              variant="outline"
+              className="border-primary/30 hover:bg-primary/10"
+              onClick={() => goToExternalLink(MUDZAP_COMMUNITY_URL)}
+            >
               <Instagram className="w-4 h-4 mr-2" />
               Instagram
             </Button>
-            <Button variant="outline" className="border-primary/30 hover:bg-primary/10">
+            <Button
+              variant="outline"
+              className="border-primary/30 hover:bg-primary/10"
+              onClick={() => goToExternalLink(MUDZAP_GITHUB_URL)}
+            >
               <Github className="w-4 h-4 mr-2" />
               GitHub
             </Button>

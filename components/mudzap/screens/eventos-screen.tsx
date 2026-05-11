@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { Calendar, Gift, Clock, CheckCircle, AlertCircle, ChevronRight, Trophy, Star, Sparkles } from "lucide-react"
 import { eventos } from "@/lib/mudzap-data"
+import { MUDZAP_COMMUNITY_URL, goToExternalLink } from "@/lib/mudzap-links"
 import { Button } from "@/components/ui/button"
 
 const statusConfig = {
@@ -244,13 +245,20 @@ function EventoCard({ evento, index, featured, compact }: EventoCardProps) {
 
         {/* Action */}
         {evento.status === "ativo" && (
-          <Button className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold py-5 px-6">
+          <Button
+            className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold py-5 px-6"
+            onClick={() => goToExternalLink(MUDZAP_COMMUNITY_URL)}
+          >
             Participar Agora
             <ChevronRight className="w-4 h-4 ml-2" />
           </Button>
         )}
         {evento.status === "em-breve" && (
-          <Button variant="outline" className="border-2 border-amber-500/40 text-amber-600 hover:bg-amber-500 hover:text-white font-bold py-5">
+          <Button
+            variant="outline"
+            className="border-2 border-amber-500/40 text-amber-600 hover:bg-amber-500 hover:text-white font-bold py-5"
+            onClick={() => goToExternalLink(MUDZAP_COMMUNITY_URL)}
+          >
             <Clock className="w-4 h-4 mr-2" />
             Lembrar-me
           </Button>

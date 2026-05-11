@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { useState } from "react"
 import { X, Terminal, ChevronRight, Sparkles, Star, Zap } from "lucide-react"
 import { sistemas } from "@/lib/mudzap-data"
+import type { Screen } from "@/lib/mudzap-data"
 import { Button } from "@/components/ui/button"
 
 interface SistemaModalProps {
@@ -100,7 +101,11 @@ function SistemaModal({ sistema, onClose }: SistemaModalProps) {
   )
 }
 
-export function SistemasScreen() {
+interface SistemasScreenProps {
+  onNavigate: (screen: Screen) => void
+}
+
+export function SistemasScreen({ onNavigate }: SistemasScreenProps) {
   const [selectedSistema, setSelectedSistema] = useState<(typeof sistemas)[0] | null>(null)
 
   // Category colors for visual variety
@@ -242,7 +247,11 @@ export function SistemasScreen() {
                 </p>
               </div>
             </div>
-            <Button variant="outline" className="border-primary/30 text-primary hover:bg-primary hover:text-white">
+            <Button
+              variant="outline"
+              className="border-primary/30 text-primary hover:bg-primary hover:text-white"
+              onClick={() => onNavigate("ajuda")}
+            >
               Ver Todos os Comandos
               <ChevronRight className="w-4 h-4 ml-2" />
             </Button>

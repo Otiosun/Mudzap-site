@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { useState } from "react"
 import { HelpCircle, Search, ChevronDown, MessageCircle, Mail } from "lucide-react"
 import { faqs } from "@/lib/mudzap-data"
+import { MUDZAP_COMMUNITY_URL, goToExternalLink } from "@/lib/mudzap-links"
 import { Button } from "@/components/ui/button"
 
 export function AjudaScreen() {
@@ -168,11 +169,18 @@ export function AjudaScreen() {
             Entre em contato com nosso suporte através da comunidade ou envie uma mensagem direta.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-gradient-to-r from-primary to-pink-600 hover:from-primary/90 hover:to-pink-600/90 glow-pink-sm">
+            <Button
+              className="bg-gradient-to-r from-primary to-pink-600 hover:from-primary/90 hover:to-pink-600/90 glow-pink-sm"
+              onClick={() => goToExternalLink(MUDZAP_COMMUNITY_URL)}
+            >
               <MessageCircle className="w-4 h-4 mr-2" />
               Falar na Comunidade
             </Button>
-            <Button variant="outline" className="border-primary/30">
+            <Button
+              variant="outline"
+              className="border-primary/30"
+              onClick={() => goToExternalLink(MUDZAP_COMMUNITY_URL)}
+            >
               <Mail className="w-4 h-4 mr-2" />
               Enviar Mensagem
             </Button>

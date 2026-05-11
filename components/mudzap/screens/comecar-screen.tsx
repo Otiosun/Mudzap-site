@@ -17,6 +17,7 @@ import {
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import type { Screen } from "@/lib/mudzap-data"
+import { MUDZAP_COMMUNITY_URL, goToExternalLink } from "@/lib/mudzap-links"
 
 interface ComecarScreenProps {
   onNavigate: (screen: Screen) => void
@@ -36,7 +37,7 @@ const passosAtivacao = [
       instrucao: "Clique no botao abaixo para entrar no grupo oficial",
       dica: "O grupo e moderado e segue regras de boa convivencia",
       acao: "Entrar no Grupo",
-      link: "#"
+      link: MUDZAP_COMMUNITY_URL
     }
   },
   {
@@ -52,7 +53,7 @@ const passosAtivacao = [
       instrucao: "Envie uma mensagem para o numero do bot",
       dica: "O bot responde automaticamente 24h por dia",
       acao: "Iniciar Conversa",
-      link: "#"
+      link: MUDZAP_COMMUNITY_URL
     }
   },
   {
@@ -284,7 +285,8 @@ export function ComecarScreen({ onNavigate }: ComecarScreenProps) {
                       size="lg"
                       className={`w-full bg-gradient-to-r ${passoSelecionado.cor} hover:opacity-90 text-white font-bold py-6 glow-pink-sm`}
                       onClick={() => {
-                        if (passoSelecionado.id === 4) onNavigate("sistemas")
+                        if (passoSelecionado.detalhes.link) goToExternalLink(passoSelecionado.detalhes.link)
+                        else if (passoSelecionado.id === 3 || passoSelecionado.id === 4) onNavigate("sistemas")
                         else if (passoSelecionado.id === 5) onNavigate("eventos")
                       }}
                     >
@@ -337,6 +339,7 @@ export function ComecarScreen({ onNavigate }: ComecarScreenProps) {
                 <Button
                   size="lg"
                   className="bg-gradient-to-r from-primary to-pink-600 hover:from-primary/90 hover:to-pink-600/90 text-lg px-8 glow-pink font-bold"
+                  onClick={() => goToExternalLink(MUDZAP_COMMUNITY_URL)}
                 >
                   <MessageCircle className="w-5 h-5 mr-2" />
                   Entrar na Comunidade

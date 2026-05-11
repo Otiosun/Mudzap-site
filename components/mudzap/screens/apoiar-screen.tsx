@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { Heart, Check, Star, Crown, Shield, CreditCard, QrCode, Sparkles, Zap, Gift } from "lucide-react"
 import { planosApoio } from "@/lib/mudzap-data"
+import { MUDZAP_COMMUNITY_URL, goToExternalLink } from "@/lib/mudzap-links"
 import { Button } from "@/components/ui/button"
 
 export function ApoiarScreen() {
@@ -132,6 +133,7 @@ export function ApoiarScreen() {
                         ? "bg-gradient-to-r from-primary to-pink-600 hover:from-primary/90 hover:to-pink-600/90 glow-pink-sm"
                         : `bg-gradient-to-r ${gradients[index]} hover:opacity-90`
                     } text-white`}
+                    onClick={() => goToExternalLink(MUDZAP_COMMUNITY_URL)}
                   >
                     <Gift className="w-4 h-4 mr-2" />
                     Apoiar Agora

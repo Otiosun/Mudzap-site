@@ -67,7 +67,7 @@ export function MudzapHub() {
       case "come\u00e7ar":
         return <ComecarScreen onNavigate={handleNavigate} />
       case "sistemas":
-        return <SistemasScreen />
+        return <SistemasScreen onNavigate={handleNavigate} />
       case "como-funciona":
         return <ComoFuncionaScreen onNavigate={handleNavigate} />
       case "comunidade":

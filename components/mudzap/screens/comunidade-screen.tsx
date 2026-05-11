@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { Users, MessageSquare, Bell, Heart, ExternalLink, Star, Check, Trophy, Sparkles } from "lucide-react"
 import { depoimentos } from "@/lib/mudzap-data"
+import { MUDZAP_COMMUNITY_URL, goToExternalLink } from "@/lib/mudzap-links"
 import { Button } from "@/components/ui/button"
 
 export function ComunidadeScreen() {
@@ -150,7 +151,10 @@ export function ComunidadeScreen() {
               <p className="text-muted-foreground mb-6">
                 Junte-se a dezenas de jogadores na comunidade oficial do MUDZAP no WhatsApp.
               </p>
-              <Button className="w-full bg-gradient-to-r from-primary to-pink-600 hover:from-primary/90 hover:to-pink-600/90 glow-pink-sm font-bold py-6">
+              <Button
+                className="w-full bg-gradient-to-r from-primary to-pink-600 hover:from-primary/90 hover:to-pink-600/90 glow-pink-sm font-bold py-6"
+                onClick={() => goToExternalLink(MUDZAP_COMMUNITY_URL)}
+              >
                 Entrar Agora
                 <ExternalLink className="w-4 h-4 ml-2" />
               </Button>
@@ -168,10 +172,18 @@ export function ComunidadeScreen() {
                 Siga nossas redes sociais para não perder nenhuma atualização ou evento.
               </p>
               <div className="flex gap-3">
-                <Button variant="outline" className="flex-1 border-2 border-primary/30 hover:bg-primary hover:text-white font-bold py-6">
+                <Button
+                  variant="outline"
+                  className="flex-1 border-2 border-primary/30 hover:bg-primary hover:text-white font-bold py-6"
+                  onClick={() => goToExternalLink(MUDZAP_COMMUNITY_URL)}
+                >
                   Instagram
                 </Button>
-                <Button variant="outline" className="flex-1 border-2 border-primary/30 hover:bg-primary hover:text-white font-bold py-6">
+                <Button
+                  variant="outline"
+                  className="flex-1 border-2 border-primary/30 hover:bg-primary hover:text-white font-bold py-6"
+                  onClick={() => goToExternalLink(MUDZAP_COMMUNITY_URL)}
+                >
                   TikTok
                 </Button>
               </div>
