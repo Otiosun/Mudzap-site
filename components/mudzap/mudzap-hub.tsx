@@ -1,19 +1,48 @@
 "use client"
 
 import { useState } from "react"
+import dynamic from "next/dynamic"
 import { motion, AnimatePresence } from "framer-motion"
 import type { Screen } from "@/lib/mudzap-data"
+import { useMotionMode } from "@/hooks/use-motion-mode"
 import { Header } from "./header"
 import { MobileNav } from "./mobile-nav"
 import { HomeScreen } from "./screens/home-screen"
-import { ComecarScreen } from "./screens/comecar-screen"
-import { SistemasScreen } from "./screens/sistemas-screen"
-import { ComoFuncionaScreen } from "./screens/como-funciona-screen"
-import { ComunidadeScreen } from "./screens/comunidade-screen"
-import { EventosScreen } from "./screens/eventos-screen"
-import { ApoiarScreen } from "./screens/apoiar-screen"
-import { AjudaScreen } from "./screens/ajuda-screen"
-import { StatusScreen } from "./screens/status-screen"
+
+const ScreenFallback = () => <div className="min-h-screen pt-20 lg:pt-24 pb-24 lg:pb-8" />
+
+const ComecarScreen = dynamic(
+  () => import("./screens/comecar-screen").then((mod) => mod.ComecarScreen),
+  { loading: ScreenFallback },
+)
+const SistemasScreen = dynamic(
+  () => import("./screens/sistemas-screen").then((mod) => mod.SistemasScreen),
+  { loading: ScreenFallback },
+)
+const ComoFuncionaScreen = dynamic(
+  () => import("./screens/como-funciona-screen").then((mod) => mod.ComoFuncionaScreen),
+  { loading: ScreenFallback },
+)
+const ComunidadeScreen = dynamic(
+  () => import("./screens/comunidade-screen").then((mod) => mod.ComunidadeScreen),
+  { loading: ScreenFallback },
+)
+const EventosScreen = dynamic(
+  () => import("./screens/eventos-screen").then((mod) => mod.EventosScreen),
+  { loading: ScreenFallback },
+)
+const ApoiarScreen = dynamic(
+  () => import("./screens/apoiar-screen").then((mod) => mod.ApoiarScreen),
+  { loading: ScreenFallback },
+)
+const AjudaScreen = dynamic(
+  () => import("./screens/ajuda-screen").then((mod) => mod.AjudaScreen),
+  { loading: ScreenFallback },
+)
+const StatusScreen = dynamic(
+  () => import("./screens/status-screen").then((mod) => mod.StatusScreen),
+  { loading: ScreenFallback },
+)
 
 const screenVariants = {
   initial: { opacity: 0, y: 20, scale: 0.98 },
@@ -23,18 +52,19 @@ const screenVariants = {
 
 export function MudzapHub() {
   const [currentScreen, setCurrentScreen] = useState<Screen>("home")
+  const { isMobile, reduceMotion } = useMotionMode()
 
   const handleNavigate = (screen: Screen) => {
     setCurrentScreen(screen)
     // Scroll to top on navigation
-    window.scrollTo({ top: 0, behavior: "smooth" })
+    window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" })
   }
 
   const renderScreen = () => {
     switch (currentScreen) {
       case "home":
         return <HomeScreen onNavigate={handleNavigate} />
-      case "comecar":
+      case "come\u00e7ar":
         return <ComecarScreen onNavigate={handleNavigate} />
       case "sistemas":
         return <SistemasScreen />
@@ -62,14 +92,14 @@ export function MudzapHub() {
 
       {/* Main Content */}
       <main className="relative">
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={currentScreen}
             variants={screenVariants}
-            initial="initial"
+            initial={reduceMotion ? false : "initial"}
             animate="animate"
             exit="exit"
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+            transition={reduceMotion ? { duration: 0 } : { duration: 0.2, ease: "easeOut" }}
           >
             {renderScreen()}
           </motion.div>
@@ -82,11 +112,13 @@ export function MudzapHub() {
       {/* Background Decorations */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden -z-10">
         {/* Top Right Glow */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2" />
+        <div className="absolute top-0 right-0 w-[320px] h-[320px] lg:w-[500px] lg:h-[500px] bg-primary/5 rounded-full blur-2xl lg:blur-3xl translate-x-1/2 -translate-y-1/2" />
         {/* Bottom Left Glow */}
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-pink-500/5 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2" />
+        <div className="absolute bottom-0 left-0 w-[380px] h-[380px] lg:w-[600px] lg:h-[600px] bg-pink-500/5 rounded-full blur-2xl lg:blur-3xl -translate-x-1/2 translate-y-1/2" />
         {/* Center Accent */}
-        <div className="absolute top-1/2 left-1/2 w-[800px] h-[800px] bg-gradient-to-br from-primary/3 to-transparent rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+        {!isMobile && (
+          <div className="absolute top-1/2 left-1/2 w-[800px] h-[800px] bg-gradient-to-br from-primary/3 to-transparent rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+        )}
       </div>
     </div>
   )
